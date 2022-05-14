@@ -1,7 +1,8 @@
-package com.bb1.registry;
+package fun.bb1.registry;
+
+import java.util.Map;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * 
@@ -20,21 +21,12 @@ import org.jetbrains.annotations.Nullable;
  * limitations under the License.
  */
 /**
- * A simple implementation of {@link IValidatedRegistry} that doesn't allow duplicates
+ * Used to declare that a registry will store information about its registrants
  * 
  * @author BradBot_1
  */
-public class SimpleUniqueRegistry<K, T> extends SimpleRegistry<K, T> implements IValidatedRegistry<K, T> {
+public interface IPersistentRegistry<K, V, T> extends IRegistry<K, T> {
 	
-	@Override
-	public @Nullable T register(final @NotNull K identifier, final @NotNull T registree) {
-		if (validate(identifier, registree)) return null;
-		return super.register(identifier, registree);
-	}
-
-	@Override
-	public boolean validate(final @NotNull K identifier, final @NotNull T value) {
-		return !this.contains(identifier);
-	}
-
+	public @NotNull Map<K, V> getPersistedData();
+	
 }

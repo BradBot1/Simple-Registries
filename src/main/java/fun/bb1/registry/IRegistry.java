@@ -1,4 +1,4 @@
-package com.bb1.registry;
+package fun.bb1.registry;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

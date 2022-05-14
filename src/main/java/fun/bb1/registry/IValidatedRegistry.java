@@ -1,6 +1,6 @@
-package com.bb1.registry;
+package fun.bb1.registry;
 
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * 
@@ -23,11 +23,8 @@ import org.jetbrains.annotations.Nullable;
  * 
  * @author BradBot_1
  */
-@FunctionalInterface
-public interface IRegisterable<T> {
+public interface IValidatedRegistry<K, T> extends IRegistry<K, T> {
 	
-	public void register(final @Nullable T name);
-	
-	public default void register() { register(null); }
+	public boolean validate(final @NotNull K identifier, final @NotNull T value);
 	
 }

@@ -1,4 +1,4 @@
-package com.bb1.registry;
+package fun.bb1.registry;
 
 import java.util.function.BiPredicate;
 
