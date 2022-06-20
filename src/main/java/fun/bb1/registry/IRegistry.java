@@ -1,5 +1,7 @@
 package fun.bb1.registry;
 
+import java.util.Collection;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,5 +37,9 @@ public interface IRegistry<K, T> {
 	public boolean contains(final @NotNull K identifier);
 	
 	default void onRegister(final @NotNull K identifier, final @NotNull T registree) { }
+	
+	public @NotNull Collection<K> getAllKeys();
+	
+	public @NotNull Collection<T> getAllValues();
 	
 }

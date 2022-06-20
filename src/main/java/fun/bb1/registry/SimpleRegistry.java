@@ -1,5 +1,6 @@
 package fun.bb1.registry;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -51,6 +52,16 @@ public class SimpleRegistry<K, T> implements IRegistry<K, T> {
 	@Override
 	public boolean contains(final @NotNull K identifier) {
 		return this.map.containsKey(identifier);
+	}
+
+	@Override
+	public @NotNull Collection<K> getAllKeys() {
+		return this.map.keySet();
+	}
+
+	@Override
+	public @NotNull Collection<T> getAllValues() {
+		return this.map.values();
 	}
 	
 }
